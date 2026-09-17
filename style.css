@@ -1,0 +1,296 @@
+/* 1. CSS RESET & VARIABLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #4f46e5;
+    --primary-hover: #4338ca;
+    --bg-dark: #0f172a;
+    --text-main: #334155;
+    --text-muted: #64748b;
+    --bg-light: #f8fafc;
+    --white: #ffffff;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    color: var(--text-main);
+    background-color: var(--bg-light);
+    line-height: 1.6;
+}
+
+/* 2. NAVBAR (FLEXBOX) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: var(--white);
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.logo span { color: var(--primary-color); }
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+/* 3. BUTTON STYLES */
+.btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-secondary {
+    color: var(--text-main);
+}
+
+/* 4. HERO SECTION */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* 5. FEATURES GRID */
+.features {
+    padding: 60px 5%;
+    background-color: var(--white);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.feature-card {
+    padding: 24px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+}
+
+/* merapikan tombol */
+.btn-outline {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-large {
+    padding: 14px 28px;
+    font-size: 1.1rem;
+}
+
+/* memberi efek saat ditunjuk mouse */
+.btn-primary-hover {
+    background-color: var(--primary-hover);
+}
+
+/* merapikan hero section */
+.hero h1 {
+    color: var(--bg-dark);
+    font-size: 2.8rem;
+    margin-bottom: 32px;
+}
+
+/* mengatur 2 tombol di hero agar berjejer rapi */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.hero p {
+    margin-bottom: 20px;
+}
+
+/* --- FEATURES SECTION --- */
+/* 1. Memberi judul bagian di tengah */
+.features h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--bg-dark);
+}
+
+/* 2. Styling untuk setiap Kartu Fitur (Feature Card) */
+.feature-card {
+    background-color: var(--white);
+    padding: 32px 24px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    /* Efek bayangan halus agar kartu terlihat timbul */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    /* Efek transisi untuk animasi hover */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 3. Efek saat kursor mouse diarahkan ke kartu */
+.feature-card:hover {
+    transform: translateY(-5px); /* Kartu sedikit terangkat ke atas */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card h3 {
+    margin-bottom: 12px;
+    color: var(--bg-dark);
+}
+
+.feature-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* --- PRICING SECTION --- */
+.pricing {
+    padding: 80px 5%;
+    text-align: center;
+}
+
+.pricing h2 {
+    font-size: 2rem;
+    color: var(--bg-dark);
+    margin-bottom: 40px;
+}
+
+/* Mengatur tata letak tabel harga menggunakan CSS Grid */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 350px));
+    justify-content: center; /* Membuat kartu berada di tengah halaman */
+    gap: 30px;
+}
+
+/* Styling Dasar Kartu Harga */
+.price-card {
+    background-color: var(--white);
+    padding: 40px 30px;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    position: relative; /* Diperlukan agar penempatan badge .popular tepat */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Styling Khusus Kartu "Pro" (Populer) */
+.price-card.popular {
+    border: 2px solid var(--primary-color); /* Garis tepi lebih tebal & berwarna */
+    box-shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.1);
+}
+
+/* Styling Badge "Populer" */
+.badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+/* Angka Harga */
+.price {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: var(--bg-dark);
+    margin: 20px 0 30px 0;
+}
+
+.price span {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-weight: normal;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--bg-dark);
+    color: var(--text-muted);
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.9rem;
+}
+
+/* --- MEDIA QUERY UNTUK LAYAR HP (Maksimal Lebar 768px) --- */
+@media (max-width: 768px) {
+    
+    /* 1. NAVBAR: Ubah susunan menu & tombol */
+    .navbar {
+        flex-direction: column; /* Mengubah susunan elemen menjadi berurutan ke bawah */
+        gap: 16px;
+        padding: 16px;
+    }
+
+    .nav-links {
+        gap: 16px;
+        font-size: 0.95rem;
+    }
+
+    /* 2. HERO SECTION: Perkecil ukuran teks agar tidak terpotong */
+    .hero {
+        padding: 40px 16px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem; /* Ukuran judul lebih kecil menyesuaikan layar HP */
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    /* Tombol hero ditumpuk ke bawah di layar kecil */
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-large {
+        width: 100%; /* Tombol memenuhi lebar layar HP */
+        text-align: center;
+    }
+
+    /* 3. FEATURES & PRICING: Grid otomatis menyesuaikan 1 kolom */
+    .features, .pricing {
+        padding: 40px 16px;
+    }
+
+    .pricing-grid {
+        grid-template-columns: 1fr; /* Memaksa kartu harga tampil 1 kolom ke bawah */
+    }
+}
